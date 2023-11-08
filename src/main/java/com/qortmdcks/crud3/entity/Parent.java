@@ -25,4 +25,8 @@ public class Parent {
 
     @Column(nullable = true)
     private String gender;
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "child_id")
+    private Child child;
 }

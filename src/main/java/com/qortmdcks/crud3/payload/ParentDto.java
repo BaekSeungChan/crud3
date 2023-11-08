@@ -19,4 +19,6 @@ public class ParentDto {
 
     @Schema(description = "parent gender")
     private String gender;
+
+    private Long childId;
 }
