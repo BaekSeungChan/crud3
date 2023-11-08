@@ -50,5 +50,18 @@ public class ChildServiceImpl implements ChildService {
         childRepository.delete(child);
     }
 
+    @Override
+    public ChildDto updateChild(ChildDto childDto, long id){
+        Child child = childRepository.findById(id).orElseThrow(() -> new RuntimeException("No id"));
+
+        child.setName(child.getName());
+        child.setAge(child.getAge());
+        child.setStudent(child.getStudent());
+
+        Child updateChild = childRepository.save(child);
+
+        return modelMapper.map(updateChild, ChildDto.class);
+    }
+
 
 }

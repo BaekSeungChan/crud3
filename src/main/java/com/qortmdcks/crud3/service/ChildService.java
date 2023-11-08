@@ -14,4 +14,5 @@ public interface ChildService {
 
     void deleteChildById(long id);
 
+    ChildDto updateChild(ChildDto childDto, long id);
 }

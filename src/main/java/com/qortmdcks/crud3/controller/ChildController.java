@@ -39,4 +39,10 @@ public class ChildController {
         childService.deleteChildById(id);
         return new ResponseEntity<>("deleted post", HttpStatus.OK);
     }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<ChildDto> updateChild(@PathVariable(name = "id") long id, @Valid @RequestBody ChildDto childDto){
+        ChildDto childResponse = childService.updateChild(childDto, id);
+        return new ResponseEntity<>(childResponse, HttpStatus.OK);
+    }
 }
