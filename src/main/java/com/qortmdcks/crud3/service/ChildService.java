@@ -10,4 +10,6 @@ public interface ChildService {
 
     List<ChildDto> getAllChild();
 
+    ChildDto getChildById(long id);
+
 }

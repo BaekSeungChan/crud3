@@ -28,4 +28,9 @@ public class ChildController {
     public ResponseEntity<List<ChildDto>> getAllChild(){
         return ResponseEntity.ok(childService.getAllChild());
     }
+
+    @GetMapping("/{id}")
+    public ResponseEntity<ChildDto> getChildById(@PathVariable(name = "id") long id){
+        return ResponseEntity.ok(childService.getChildById(id));
+    }
 }

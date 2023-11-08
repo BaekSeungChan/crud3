@@ -37,5 +37,12 @@ public class ChildServiceImpl implements ChildService {
         return childs.stream().map((child) -> modelMapper.map(child, ChildDto.class)).collect(Collectors.toList());
     }
 
+    @Override
+    public ChildDto getChildById(long id){
+        Child child = childRepository.findById(id).orElseThrow(() -> new RuntimeException("No id"));
+
+        return modelMapper.map(child, ChildDto.class);
+    }
+
 
 }
