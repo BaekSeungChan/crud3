@@ -17,12 +17,12 @@ public class Parent {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column()
+    @Column(nullable = false)
     private String name;
 
     @Column()
-    private Integer age;
+    private int age = 0;
 
-    @Column()
+    @Column(nullable = true)
     private String gender;
 }
