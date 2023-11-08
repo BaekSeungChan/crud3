@@ -7,6 +7,9 @@ import com.qortmdcks.crud3.service.ChildService;
 import org.modelmapper.ModelMapper;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @Service
 public class ChildServiceImpl implements ChildService {
 
@@ -25,6 +28,13 @@ public class ChildServiceImpl implements ChildService {
         Child savedChild = childRepository.save(child);
 
         return modelMapper.map(savedChild, ChildDto.class);
+    }
+
+    @Override
+    public List<ChildDto> getAllChild(){
+        List<Child> childs = childRepository.findAll();
+
+        return childs.stream().map((child) -> modelMapper.map(child, ChildDto.class)).collect(Collectors.toList());
     }
 
 
