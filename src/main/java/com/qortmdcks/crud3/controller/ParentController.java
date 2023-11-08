@@ -6,10 +6,9 @@ import jakarta.validation.Valid;
 import org.apache.coyote.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 @RestController
 @RequestMapping("/api/parent")
@@ -23,6 +22,11 @@ public class ParentController {
     @PostMapping
     public ResponseEntity<ParentDto> createParent(@Valid @RequestBody ParentDto parentDto){
         return new ResponseEntity<>(parentService.createParent(parentDto), HttpStatus.OK);
+    }
+
+    @GetMapping("/all")
+    public ResponseEntity<List<ParentDto>> getAllParent(){
+        return ResponseEntity.ok(parentService.getAllParent());
     }
 
 
