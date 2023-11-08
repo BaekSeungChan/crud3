@@ -17,12 +17,12 @@ public class Child {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column()
+    @Column(nullable = false)
     private String name;
 
     @Column()
-    private int age;
+    private int age = 0;
 
-    @Column()
+    @Column(nullable = false)
     private String student;
 }
