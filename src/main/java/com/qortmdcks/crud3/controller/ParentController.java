@@ -40,5 +40,11 @@ public class ParentController {
         return new ResponseEntity<>("deleted post", HttpStatus.OK);
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<ParentDto> updateParent(@PathVariable(name = "id") long id, @Valid @RequestBody ParentDto parentDto){
+        ParentDto parentResponse = parentService.updateParent(parentDto, id);
+        return new ResponseEntity<>(parentResponse, HttpStatus.OK);
+    }
+
 
 }
