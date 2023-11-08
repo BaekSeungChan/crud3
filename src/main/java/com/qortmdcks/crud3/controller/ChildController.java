@@ -33,4 +33,10 @@ public class ChildController {
     public ResponseEntity<ChildDto> getChildById(@PathVariable(name = "id") long id){
         return ResponseEntity.ok(childService.getChildById(id));
     }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<String> deleteChildById(@PathVariable(name = "id") long id){
+        childService.deleteChildById(id);
+        return new ResponseEntity<>("deleted post", HttpStatus.OK);
+    }
 }

@@ -12,4 +12,6 @@ public interface ChildService {
 
     ChildDto getChildById(long id);
 
+    void deleteChildById(long id);
+
 }

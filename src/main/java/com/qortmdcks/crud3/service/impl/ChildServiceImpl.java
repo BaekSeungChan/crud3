@@ -44,5 +44,11 @@ public class ChildServiceImpl implements ChildService {
         return modelMapper.map(child, ChildDto.class);
     }
 
+    @Override
+    public void deleteChildById(long id){
+        Child child = childRepository.findById(id).orElseThrow(() -> new RuntimeException());
+        childRepository.delete(child);
+    }
+
 
 }
